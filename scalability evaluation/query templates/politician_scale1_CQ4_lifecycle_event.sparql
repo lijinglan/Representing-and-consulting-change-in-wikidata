@@ -1,0 +1,16 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?entity ?dateOfBirth WHERE {
+  VALUES ?entity {
+    wd:Q115043621
+  }
+
+  ?entity p:P569 ?statement .
+  ?statement ps:P569 ?dateOfBirth .
+}

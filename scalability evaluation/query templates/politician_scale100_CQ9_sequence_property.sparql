@@ -1,0 +1,35 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?entity ?relation ?relatedPerson WHERE {
+  VALUES ?entity {
+    wd:Q115043621 wd:Q21573510 wd:Q16358809 wd:Q138031795 wd:Q123876853 wd:Q65566564 wd:Q65587517 wd:Q130620130
+    wd:Q4316586 wd:Q20512914 wd:Q918355 wd:Q18223472 wd:Q63764725 wd:Q12730564 wd:Q45673808 wd:Q27171675
+    wd:Q116935109 wd:Q109119238 wd:Q12208895 wd:Q111904563 wd:Q111229252 wd:Q2059680 wd:Q123716954 wd:Q27915617
+    wd:Q12726694 wd:Q16828475 wd:Q111520230 wd:Q107161471 wd:Q953882 wd:Q12384353 wd:Q1943881 wd:Q115858535
+    wd:Q123699338 wd:Q105335900 wd:Q115004764 wd:Q12713471 wd:Q65597702 wd:Q20900586 wd:Q15616933 wd:Q123898655
+    wd:Q3324762 wd:Q45781189 wd:Q10799296 wd:Q123878841 wd:Q136684903 wd:Q3102506 wd:Q109693047 wd:Q111228179
+    wd:Q26266078 wd:Q50772064 wd:Q61892688 wd:Q105724263 wd:Q3620345 wd:Q111323386 wd:Q65601540 wd:Q4990369
+    wd:Q123892620 wd:Q2843930 wd:Q21857231 wd:Q123873227 wd:Q19849412 wd:Q20508530 wd:Q138033123 wd:Q106147927
+    wd:Q98258994 wd:Q109602548 wd:Q137696296 wd:Q4054450 wd:Q20630564 wd:Q11530414 wd:Q11737907 wd:Q4456383
+    wd:Q5896166 wd:Q138760227 wd:Q94841132 wd:Q112078439 wd:Q61653554 wd:Q124971152 wd:Q1313183 wd:Q454424
+    wd:Q12363921 wd:Q111180215 wd:Q10311282 wd:Q137680770 wd:Q123868477 wd:Q65577510 wd:Q19300384 wd:Q126365222
+    wd:Q116931884 wd:Q14430 wd:Q5490860 wd:Q16093533 wd:Q125780387 wd:Q111176717 wd:Q16576929 wd:Q55124800
+    wd:Q138759114 wd:Q3953110 wd:Q16566847 wd:Q98247186
+  }
+
+  VALUES (?property ?statementProperty ?relation) {
+    (p:P155  ps:P155  "follows")
+    (p:P156  ps:P156  "followed by")
+    (p:P1365 ps:P1365 "replaces")
+    (p:P1366 ps:P1366 "replaced by")
+  }
+
+  ?entity ?property ?statement .
+  ?statement ?statementProperty ?relatedPerson .
+}

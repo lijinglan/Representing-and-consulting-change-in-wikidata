@@ -1,0 +1,36 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?entity ?position ?startTime ?endTime ?pointInTime WHERE {
+  VALUES ?entity {
+    wd:Q115043621 wd:Q21573510 wd:Q16358809 wd:Q138031795 wd:Q123876853 wd:Q65566564 wd:Q65587517 wd:Q130620130
+    wd:Q4316586 wd:Q20512914
+  }
+
+  ?entity p:P39 ?statement .
+  ?statement ps:P39 ?position .
+  OPTIONAL { ?statement pq:P580 ?startTime . }
+  OPTIONAL { ?statement pq:P582 ?endTime . }
+  OPTIONAL { ?statement pq:P585 ?pointInTime . }
+
+  FILTER (BOUND(?startTime) || BOUND(?endTime) || BOUND(?pointInTime))
+
+  FILTER (
+    (
+      BOUND(?pointInTime) &&
+      ?pointInTime >= "2024-01-01T00:00:00Z"^^xsd:dateTime &&
+      ?pointInTime < "2025-01-01T00:00:00Z"^^xsd:dateTime
+    )
+    ||
+    (
+      !BOUND(?pointInTime) &&
+      (!BOUND(?startTime) || ?startTime < "2025-01-01T00:00:00Z"^^xsd:dateTime) &&
+      (!BOUND(?endTime) || ?endTime >= "2024-01-01T00:00:00Z"^^xsd:dateTime)
+    )
+  )
+}
