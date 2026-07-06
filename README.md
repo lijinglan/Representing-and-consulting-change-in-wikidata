@@ -7,10 +7,10 @@ The thesis studies how factual change is represented and queried in Wikidata. It
 ## Repository structure
 
 - `business/`  
-  Contains the code and data used for the approach analysis in the business domain, including domain pool construction, sampling, statement retrieval, property analysis, property taxonomy, qualifier taxonomy, change-related pair identification, and approach analysis.
+  Contains the code and data used for the approach analysis in the business domain, including domain pool construction, sampling, statement retrieval, property analysis, property taxonomy, qualifier taxonomy, change-related pair identification, and approach analysis. The property taxonomy and qualifier taxonomy folders include the change-related properties and qualifiers used to identify change-related entity-property pairs.
 
 - `politician/`  
-  Contains the code and data used for the approach analysis in the politician domain, including domain pool construction, sampling, statement retrieval, property analysis, property taxonomy, qualifier taxonomy, change-related pair identification, and approach analysis.
+  Contains the code and data used for the approach analysis in the politician domain, including domain pool construction, sampling, statement retrieval, property analysis, property taxonomy, qualifier taxonomy, change-related pair identification, and approach analysis. The property taxonomy and qualifier taxonomy folders include the change-related properties and qualifiers used to identify change-related entity-property pairs.
 
 - `scalability evaluation/`  
   Contains the query templates, input entity sets, QLever runtime logs, and summary files used for the scalability evaluation.
